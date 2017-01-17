@@ -2,25 +2,66 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 $title-font: 'Roboto', sans-serif;
-$main-color: rgba(50, 205 , 50, 0.5);
+$background-color: rgba(50, 205 , 50, 0.5);
+$main-color: darkgreen;
+
+body {
+	color: $main-color;
+	font-family: $title-font;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+a:hover {
+	color: $main-color;
+}
+
+::-webkit-input-placeholder {
+	color: $main-color;
+}
 
 .navbar ul {
 	display: flex;
 	justify-content: flex-end;
 	list-style-type: none;
-	border-bottom: 1px solid darkgreen;
-	background-color: $main-color;
+	border-bottom: 1px solid $main-color;
+	background-color: $background-color;
 }
 
 .navbar li {
 	margin-right: 40px;
-	vertical-align: middle;
 }
 
 .navbar a {
 	text-decoration: none;
-	font-family: $title-font;
 	font-size: 1.5em;
 	vertical-align: middle;
+	color: $main-color;
+}
+
+.navbar a:hover {
 	color: white;
 }
+
+.field input {
+	outline-color: $background-color;
+}
+
+#search {
+	outline-color: $background-color;
+}
+
+.search_button {
+	background-color: $main-color;
+	color: white;
+	border-color: black
+}
+
+.actions input {
+	margin: 5px 5px 5px 0px;
+	@extend .search_button
+}
+
+
