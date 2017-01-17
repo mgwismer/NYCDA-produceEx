@@ -20,20 +20,8 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
 
   get 'static_pages/help'
-
-  get 'products/index'
-
-  get 'products/show'
-
-  get 'products/new'
-
-  get 'products/create'
-
-  get 'products/edit'
-
-  get 'products/update'
-
-  get 'products/destroy'
+  
+  resources :products
 
   devise_for :sellers, controllers: { registrations: "registrations", 
       sessions: "sellers/sessions" 
