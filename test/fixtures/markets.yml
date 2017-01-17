@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seller: one
+  product: one
+  description: MyText
+  price: MyString
+  price_description: MyString
+  harvest_date: MyString
+  harvest_location: MyString
+
+two:
+  seller: two
+  product: two
+  description: MyText
+  price: MyString
+  price_description: MyString
+  harvest_date: MyString
+  harvest_location: MyString
