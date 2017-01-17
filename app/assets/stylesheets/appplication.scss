@@ -1,0 +1,26 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+$title-font: 'Roboto', sans-serif;
+$main-color: rgba(50, 205 , 50, 0.5);
+
+.navbar ul {
+	display: flex;
+	justify-content: flex-end;
+	list-style-type: none;
+	border-bottom: 1px solid darkgreen;
+	background-color: $main-color;
+}
+
+.navbar li {
+	margin-right: 40px;
+	vertical-align: middle;
+}
+
+.navbar a {
+	text-decoration: none;
+	font-family: $title-font;
+	font-size: 1.5em;
+	vertical-align: middle;
+	color: white;
+}
