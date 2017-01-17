@@ -1,18 +1,4 @@
 Rails.application.routes.draw do
-  get 'profiles/index'
-
-  get 'profiles/show'
-
-  get 'profiles/new'
-
-  get 'profiles/edit'
-
-  get 'profiles/delete'
-
-  get 'profiles/update'
-
-  get 'profiles/create'
-
   root 'static_pages#home'
 
   get '/about', to: "static_pages#about"
@@ -21,19 +7,7 @@ Rails.application.routes.draw do
 
   get '/help', to: "static_pages#help"
 
-  get 'products/index'
-
-  get 'products/show'
-
-  get 'products/new'
-
-  get 'products/create'
-
-  get 'products/edit'
-
-  get 'products/update'
-
-  get 'products/destroy'
+  resources :products, :profiles
 
   devise_for :sellers, controllers: { registrations: "registrations", 
       sessions: "sellers/sessions" 

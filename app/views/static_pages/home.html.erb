@@ -1,2 +1,12 @@
 <h1>Produce Land</h1>
 <p>Find The Freshest Produce In The World</p>
+
+
+<%= @sellers.each do |seller| %>
+	<%= seller.name %>
+	<%= seller.street_address %>
+    <%= seller.city %>
+    <%= seller.state %>
+    <%= seller.zipcode %>
+
+ <% end %>

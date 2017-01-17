@@ -4,5 +4,4 @@ class Product < ApplicationRecord
 	def self.search(search)
   		where("name LIKE ? OR PLU LIKE ? OR category LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
 	end
-
 end
