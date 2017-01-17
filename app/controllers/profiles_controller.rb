@@ -3,11 +3,6 @@ class ProfilesController < ApplicationController
   end
 
   def show
-  if params[:id]
-    @seller = User.find(params[:id])
-  else
-    @seller = current_user
-  end
   end
 
   def new

@@ -1,12 +1,16 @@
+<div class="background_image">
 <h1>Produce Land</h1>
 <p>Find The Freshest Produce In The World</p>
 
 
-<%= @sellers.each do |seller| %>
-	<%= seller.name %>
-	<%= seller.street_address %>
-    <%= seller.city %>
-    <%= seller.state %>
-    <%= seller.zipcode %>
+
+<h2>Top Markets</h2>
+<div class="sellers">
+<% @sellers.each do |seller| %>
+	<div class="seller_name"><%= seller.name %></div>
+	<div class="seller_address"><%= seller.street_address %>
+	<div class="seller_city_state"><%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></div>
 
  <% end %>
+ </div>
+ </div>
