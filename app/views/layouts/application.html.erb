@@ -11,7 +11,10 @@
   <body>
   	<div class="navbar">
   		<ul>
-  			<li><%= link_to "Produce Lane", root_path %></li>
+  			<li><%= link_to "Produce Land", root_path %></li>
+        <li><%= link_to "About", static_pages_about_path %></li>
+        <li><%= link_to "Help", static_pages_help_path %></li>
+        <li></li>
   				<% if !current_seller %>
           <li><%= link_to "Sign In", new_seller_session_path %></li>
           <li><%= link_to "Sign Up", new_seller_registration_path %></li>
