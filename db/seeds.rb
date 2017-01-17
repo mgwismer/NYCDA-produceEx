@@ -7,8 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Product.create ([{ name: 'Bananas', PLU: '4011', category: 'Fruit', organic: false}])
-Product.create ([{ name: 'Broccoli', PLU: '4060', category: 'Vegetable', organic: false}])
-Product.create ([{ name: 'Carrots', PLU: '4094', category: 'Vegetable', organic: false}])
-Product.create ([{ name: 'Strawberries', PLU: '4246', category: 'Fruit', organic: false}])
-Product.create ([{ name: 'Kale', PLU: '4627', category: 'Vegetable', organic: true}])
+
+
+PLU.all.each do |key, value|
+	Product.create(name: value, PLU: key, category: 'fruit', organic: false)
+end
+
+PLU.all.each do |key, value|
+	Product.create(name: 'Organic ' + value, PLU: key, category: 'fruit', organic: true)
+end

@@ -1,29 +1,29 @@
 Rails.application.routes.draw do
-  get 'profiles/index'
+ get 'profiles/index'
 
-  get 'profiles/show'
+ get 'profiles/show'
 
-  get 'profiles/new'
+ get 'profiles/new'
 
-  get 'profiles/edit'
+ get 'profiles/edit'
 
-  get 'profiles/delete'
+ get 'profiles/delete'
 
-  get 'profiles/update'
+ get 'profiles/update'
 
-  get 'profiles/create'
+ get 'profiles/create'
 
-  root 'static_pages#home'
+ root 'static_pages#home'
 
-  get 'static_pages/about'
+ get '/about', to: "static_pages#about"
 
-  get 'static_pages/contact'
+ get '/contact', to: "static_pages#contact"
 
-  get 'static_pages/help'
-  
-  resources :products
+ get '/help', to: "static_pages#help"
 
-  devise_for :sellers, controllers: { registrations: "registrations", 
+ resources :products
+
+ devise_for :sellers, controllers: { registrations: "registrations", 
       sessions: "sellers/sessions" 
     }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
