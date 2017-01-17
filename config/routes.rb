@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'static_pages/help'
 
+  get 'products/index'
+
   get 'products/show'
 
   get 'products/new'
