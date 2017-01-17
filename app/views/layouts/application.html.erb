@@ -12,15 +12,20 @@
   	<div class="navbar">
   		<ul>
   			<li><%= link_to "Produce Land", root_path %></li>
-        <li><%= link_to "About", static_pages_about_path %></li>
-        <li><%= link_to "Help", static_pages_help_path %></li>
+        <li><%= link_to "Find Produce", products_path %></li>
         <li></li>
   				<% if !current_seller %>
           <li><%= link_to "Sign In", new_seller_session_path %></li>
           <li><%= link_to "Sign Up", new_seller_registration_path %></li>
           <% else %>
+         <li> <%= link_to "My Profile" %> 
   			<li><%= link_to("Sign out", destroy_seller_session_path, :method => :delete) %></li>
-  				<% end %>    
+  				<% end %>
+         <li><%= form_tag(root_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Sellers" %>
+    <%= submit_tag "Search", :name => nil, class: 'search_button' %>
+       <% end %></li>
+
   		</ul>
   	</div>
     <div class="container">

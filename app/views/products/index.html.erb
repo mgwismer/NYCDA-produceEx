@@ -6,12 +6,13 @@
 <% end %>
 
 <div class="row">
-	<% @products.each do |product| %>
+	<% @products.last(4).each do |product| %>
 		<div class="col-sm-3">
-			<h4>Product Name: <%= product.name %></h4>
+			<h4><%= product.name %></h4>
 			<p>PLU:  <%= product.PLU %></p>
 			<p>Category:  <%= product.category %></p>
 			<p>Organic:  <%= product.organic %></p>
+			<a href='/products/<%= "#{product.id}" %>'>View this Product</a>
 		</div>
 	<% end %>
 </div>

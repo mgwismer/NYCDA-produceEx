@@ -1,2 +1,24 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div>
+	<div>
+		<h2><%= @product.name %></h2>
+		<p>PLU:  <%= @product.PLU %></p>
+		<p>Category:  <%= @product.category %></p>
+		<p>Organic:  <%= @product.organic %></p>
+	</div>
+
+	<h3>Markets with <%= @product.name %> for sale:</h3>
+<!-- each loop -->
+	<div>
+		<h3>seller.name</h3>
+		<p>seller.street_address</p>
+		<p>seller.city, seller.state seller.zipcode</p>
+		<p>link to seller.id show</p>
+
+		<h4>About our <%= @product.name %></h4>
+		<p>seller.market.product.description</p>
+		<p>seller.market.product.price seller.market.product.price_description</p>
+		<p>seller.market.product.harvest_date</p>
+		<p>seller.market.product.harvest_location</p>
+	</div>
+<!-- close loop -->
+</div>

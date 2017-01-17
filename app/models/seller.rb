@@ -5,4 +5,9 @@ class Seller < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :markets
   has_many :products, through: :markets
+
+ def self.search(search)
+  		where("name LIKE ? OR city LIKE ? OR zipcode LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+	end
+
 end

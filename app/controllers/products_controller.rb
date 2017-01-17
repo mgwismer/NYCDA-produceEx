@@ -1,9 +1,8 @@
 class ProductsController < ApplicationController
   
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  # before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
     if params[:search]
       @products = Product.search(params[:search]).order("created_at DESC")
     else
@@ -12,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -35,8 +35,8 @@ private
     params.require(:user).permit(:name, :PLU, :category, :organic)
   end
 
-  def set_product
-    @product = Product.find(params[:id])
-  end
+  # def set_product
+  #   @product = Product.find(params[:id])
+  # end
 
 end

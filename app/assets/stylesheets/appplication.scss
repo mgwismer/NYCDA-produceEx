@@ -65,3 +65,11 @@ a:hover {
 }
 
 
+.background_image {
+	width: 100%;
+	background-image: url('oranges.jpg'); //Add background_image
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 1000px;
+}
+
