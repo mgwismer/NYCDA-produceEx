@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get 'static_pages/help'
 
+  get 'products/index'
+
   get 'products/show'
 
   get 'products/new'
@@ -34,6 +36,7 @@ Rails.application.routes.draw do
   get 'products/destroy'
 
   devise_for :sellers, controllers: { registrations: "registrations", 
-      sessions: "sessions"}
+      sessions: "sellers/sessions" 
+    }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
