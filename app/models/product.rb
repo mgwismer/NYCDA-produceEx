@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+	has_many :markets
 	has_many :sellers, through: :markets
 
 	def self.search(search)
