@@ -21,6 +21,9 @@ Rails.application.routes.draw do
 
   get 'products/destroy'
 
-  devise_for :sellers
+  devise_for :sellers, controllers: {
+    sessions: 'sellers/sessions'
+  }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
