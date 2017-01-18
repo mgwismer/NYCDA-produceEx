@@ -1,1 +1,27 @@
+<h3> This is the update page </h3>
+<h5> Use to change the price or price desciption. If you're changing 
+the type of product, delete the market and add a new one. </h5>
 
+<%= form_for @market do |f| %>	
+	<div class="col-md-6">
+	   <h4> <%= @market.product.name %></h4>
+
+	</div>
+	<br>
+	<div class="col-md-6">
+		<%= f.label :description, value:  "Description"%>
+		<%= f.text_field :description %><br>
+		<%= f.label :price, value:  "Price "%>
+		<%= f.text_field :price %><br>
+
+		<%= f.label :price_description, value: "Price Description" %>
+		<%= f.text_field :price_description %><br>
+
+		<%= f.label :harvest_date, value: "Harvest date" %>
+		<%= f.text_field :harvest_date %><br>
+
+		<%= f.label :harvest_location, value: "Harvest Location" %>
+		<%= f.text_field :harvest_location %><br>
+		<%= f.submit "UPDATE MARKET" %>
+	</div>
+<% end %>

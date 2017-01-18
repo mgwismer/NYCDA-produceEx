@@ -7,14 +7,14 @@
 	<div class="row">
 		<% if @products %>
 			<%= form_for @market do |f| %>	
-				<div class="col-md-3">
+				<div class="col-md-6">
 				  <% @products.each do |product| %>
-							<h3> <%= product.name%> <%= radio_button_tag(:product, product.id) %></h3>
+							<h5> <%= product.name%> <%= radio_button_tag(:product, product.id) %></h5>
 							<p>PLU:  <%= product.PLU %></p>
 					<% end %>
 				</div>
 				<br>
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<%= f.label :description, value:  "Description"%>
 					<%= f.text_field :description %><br>
 					<%= f.label :price, value:  "Price "%>
