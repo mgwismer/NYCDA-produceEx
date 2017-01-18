@@ -18,6 +18,7 @@ class MarketsController < ApplicationController
   def create
     @market = Market.new(market_params)
     @market.product_id = params[:product]
+    @market.seller_id = current_seller.id
     @market.save
     # product = Product.find(params[:id])
     # @market.push(product)
@@ -30,6 +31,6 @@ class MarketsController < ApplicationController
   end
 
   def market_params
-    params.require(:market).permit(:price, :price_description, :harvest_date, :harvest_location)
+    params.require(:market).permit(:description, :price, :price_description, :harvest_date, :harvest_location)
   end
 end
