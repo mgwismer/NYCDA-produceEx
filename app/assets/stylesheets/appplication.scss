@@ -94,9 +94,14 @@ a:hover {
 	width: 20%;
 	background-color: white;
 	color: $main-color;
+	outline-color: $background-color;
 }
 
 .new_market {
 	text-align: center;
+}
+
+input#seller_remember_me {
+	background: $main-color;
 }
 

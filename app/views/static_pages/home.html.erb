@@ -1,6 +1,6 @@
 <div class="background_image">
 <h1>Produce Land</h1>
-<p>Find The Freshest Produce In The World</p>
+<p>The Freshest Produce In The World</p>
 <%= button_to "Sign Up", new_seller_registration_path, :method => "get", id: "signup_frontpage" %>
 </div>
 
@@ -9,7 +9,7 @@
 
 <% @sellers.last(4).each do |seller| %>
 <div class="col-lg-3 new_market">
-	<div><%= seller.name %></div>
+	<div><%= link_to seller.name, profiles_show_path %></div>
 	<div><%= seller.street_address %></div>
 	<div><%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></div>
 </div>
