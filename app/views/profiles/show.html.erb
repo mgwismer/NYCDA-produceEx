@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
 		<div class="seller-container col-md-6">
-		    <h2>Your account </h2>
+		  <h2>Your account </h2>
 			<h2>Seller Number: <%= @seller.id %></h2>
 			<h4>Seller Name: <%= @seller.name %></h4>
 			<h4>Seller email: <%= @seller.email %></h4>
@@ -16,24 +16,25 @@
 				   <%= product.name %> <br>
 				<% end %>
 			</div>
+			<a href="/markets/update"><button> UPDATE MARKET</button></a>
+			<a href="/markets/new"><button>ADD MARKET</button></a>
 		</div>
 
-		<%= form_tag(profiles_show_path, :method => "get", id: "search-form") do %>
-			<%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
-		  	<%= submit_tag "Search", :name => nil %>
+	<%= form_tag(profiles_show_path, :method => "get", id: "search-form") do %>
+		<%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
+		<%= submit_tag "Search", :name => nil %>
+	<% end %>
+	<div class="row">
+		<% if @products %>	
+			  <% @products.each do |product| %>
+					<div class="col-sm-3">
+						<h4>Product Name: <%= product.name %></h4>
+						<p>PLU:  <%= product.PLU %></p>
+						<p>Category:  <%= product.category %></p>
+						<p>Organic:  <%= product.organic %></p>
+					</div>
+				<% end %>
 		<% end %>
-		<div class="row">
-		<% @products.each do |product| %>
-			<div class="col-sm-3">
-				<h4>Product Name: <%= product.name %></h4>
-				<p>PLU:  <%= product.PLU %></p>
-				<p>Category:  <%= product.category %></p>
-				<p>Organic:  <%= product.organic %></p>
-			</div>
-		<% end %>
-		<div class="col-md-6">
-
-      </div>
-      </div>
-    </div>
+	</div>
+  </div>
  </div>
