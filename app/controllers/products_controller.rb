@@ -11,7 +11,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @sellers = Seller.all
+    # @seller = Seller.find(params[:seller_id])
     @product = Product.find(params[:id])
+    @markets = Market.where(product_id: @product.id)
   end
 
   def new
@@ -36,6 +39,9 @@ private
     params.require(:user).permit(:name, :PLU, :category, :organic)
   end
 
+  def market_params
+    params.require(:market).permit(:seller_id, :product_id, :description, :price, :price_description, :harvest_date, :harvest_location)
+  end
   # def set_product
   #   @product = Product.find(params[:id])
   # end

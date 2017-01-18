@@ -1,4 +1,4 @@
-<h2>Freshest, Local Produce</h2>
+<h2 class="text-center">Freshest, Local Produce</h2>
 
 <%= form_tag(products_path, :method => "get", id: "search-form") do %>
 	<%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
@@ -6,13 +6,13 @@
 <% end %>
 
 <div class="row">
-	<% @products.last(4).each do |product| %>
-		<div class="col-sm-3">
+	<% @products.last(16).each do |product| %>
+		<div class="col-sm-3 product_results">
 			<h4><%= product.name %></h4>
 			<p>PLU:  <%= product.PLU %></p>
 			<p>Category:  <%= product.category %></p>
 			<p>Organic:  <%= product.organic %></p>
-			<a href='/products/<%= "#{product.id}" %>'>View this Product</a>
+			<p><a href='/products/<%= "#{product.id}" %>'>View this Product</a></p>
 		</div>
 	<% end %>
 </div>
