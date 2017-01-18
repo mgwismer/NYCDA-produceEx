@@ -22,16 +22,24 @@ a:hover {
 	color: $main-color;
 }
 
+.navbar {
+	margin: 0;
+	min-height: 0;
+}
+
+
 .navbar ul {
 	display: flex;
 	justify-content: flex-end;
 	list-style-type: none;
 	border-bottom: 1px solid $main-color;
 	background-color: $background-color;
+	margin: 0;
 }
 
 .navbar li {
 	margin-right: 40px;
+
 }
 
 .navbar a {
@@ -67,9 +75,28 @@ a:hover {
 
 .background_image {
 	width: 100%;
-	background-image: url('oranges.jpg'); //Add background_image
+	background-image: url('apples.jpg'); //Add background_image
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	height: 1000px;
+	height: 500px;
+	padding: 20px;
+	color: white;
+	text-align: center;
+	text-shadow: 2px 2px darkgreen;
+}
+
+.background_image h1 {
+	margin-top: 0px;
+	font-size: 5em;
+}
+
+#signup_frontpage {
+	width: 20%;
+	background-color: white;
+	color: $main-color;
+}
+
+.new_market {
+	text-align: center;
 }
 

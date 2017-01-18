@@ -9,7 +9,7 @@
   </head>
 
   <body>
-  	<div class="navbar">
+  	<div class="row navbar">
   		<ul>
   			<li><%= link_to "Produce Land", root_path %></li>
         <li><%= link_to "Find Produce", products_path %></li>
@@ -18,7 +18,7 @@
           <li><%= link_to "Sign In", new_seller_session_path %></li>
           <li><%= link_to "Sign Up", new_seller_registration_path %></li>
           <% else %>
-         <li> <%= link_to "My Profile", profiles_show_path %> 
+         <li> <%= link_to "My Profile", profiles_show_path %> </li>
   			<li><%= link_to("Sign out", destroy_seller_session_path, :method => :delete) %></li>
   				<% end %>
          <li><%= form_tag(profiles_index_path, :method => "get", id: "search-form") do %>
