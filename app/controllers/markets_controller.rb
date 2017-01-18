@@ -3,6 +3,7 @@ class MarketsController < ApplicationController
   end
 
   def show
+    @seller = Seller.find(params[:id])
   end
 
   def new
@@ -20,14 +21,17 @@ class MarketsController < ApplicationController
     @market.product_id = params[:product]
     @market.seller_id = current_seller.id
     @market.save
-    # product = Product.find(params[:id])
-    # @market.push(product)
   end
 
   def update
+    @seller = current_seller
   end
 
-  def destroy
+  def destroy   
+    @seller = current_seller
+    Market.find(params[:id]).destroy
+    flash[:success] = "order deleted"
+    redirect_to market_path(@seller)
   end
 
   def market_params
