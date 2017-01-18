@@ -7,18 +7,19 @@
 	</div>
 
 	<h3>Markets with <%= @product.name %> for sale:</h3>
-<!-- each loop -->
-	<div>
-		<h3>seller.name</h3>
-		<p>seller.street_address</p>
-		<p>seller.city, seller.state seller.zipcode</p>
-		<p>link to seller.id show</p>
 
-		<h4>About our <%= @product.name %></h4>
-		<p>seller.market.product.description</p>
-		<p>seller.market.product.price seller.market.product.price_description</p>
-		<p>seller.market.product.harvest_date</p>
-		<p>seller.market.product.harvest_location</p>
-	</div>
-<!-- close loop -->
+	<% @markets.each do |market| %>
+		<div>
+			<h3>Seller: <%= market.seller.name %> </h3>
+			<p>Address: <%= market.seller.street_address %>  </p>
+			<p>  <%= market.seller.city %>,   <%= market.seller.state %>  <%= market.seller.zipcode %></p>
+			<p>link to market.seller.id show</p>
+
+			<h4>About <%= market.seller.name %>'s <%= @product.name %>: </h4>
+			<p>Description: <%= market.description %></p>
+			<p> Cost: $ <%= market.price %> <%= market.price_description %></p>
+			<p> Harvested on: <%= market.harvest_date %></p>
+			<p> Farm Location: <%= market.harvest_location %></p>
+		</div>
+	<% end %>
 </div>
