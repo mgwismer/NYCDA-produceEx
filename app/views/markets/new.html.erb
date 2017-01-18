@@ -7,30 +7,29 @@
 	<div class="row">
 		<% if @products %>
 			<%= form_for @market do |f| %>	
-			  <% @products.each do |product| %>
-					<div class="col-sm-3">
-						<h4>Product Name: <%= product.name%> <%= radio_button_tag(:product, product.id) %></h4>
-
-						<p>PLU:  <%= product.PLU %></p>
-						<p>Category:  <%= product.category %></p>
-						<p>Organic:  <%= product.organic %></p>
-					</div>
-				<% end %>
+				<div class="col-md-3">
+				  <% @products.each do |product| %>
+							<h3> <%= product.name%> <%= radio_button_tag(:product, product.id) %></h3>
+							<p>PLU:  <%= product.PLU %></p>
+					<% end %>
+				</div>
 				<br>
-				<%= f.label :description, value:  "Price "%>
-				<%= f.text_field :description %><br>
-				<%= f.label :price, value:  "Price "%>
-				<%= f.text_field :price %><br>
+				<div class="col-md-4">
+					<%= f.label :description, value:  "Description"%>
+					<%= f.text_field :description %><br>
+					<%= f.label :price, value:  "Price "%>
+					<%= f.text_field :price %><br>
 
-				<%= f.label :price_description, value: "Price Description" %>
-				<%= f.text_field :price_description %><br>
+					<%= f.label :price_description, value: "Price Description" %>
+					<%= f.text_field :price_description %><br>
 
-				<%= f.label :harvest_date, value: "Harvest date" %>
-				<%= f.text_field :harvest_date %><br>
+					<%= f.label :harvest_date, value: "Harvest date" %>
+					<%= f.text_field :harvest_date %><br>
 
-				<%= f.label :harvest_location, value: "Harvest Location" %>
-				<%= f.text_field :harvest_location %><br>
-				<%= f.submit "ADD MARKET" %>
+					<%= f.label :harvest_location, value: "Harvest Location" %>
+					<%= f.text_field :harvest_location %><br>
+					<%= f.submit "ADD MARKET" %>
+				</div>
 			<% end %>
 		<% end %>
 	</div>

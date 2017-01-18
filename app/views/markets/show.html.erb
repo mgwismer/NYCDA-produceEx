@@ -1,2 +1,13 @@
-<h1>Markets#show</h1>
-<p>Find me in app/views/markets/show.html.erb</p>
+	<h4>Your current markets</h4>
+	  <div class="market-list">
+		<% @seller.markets.each do |market| %>
+			<%= market.product.name %> from <%= market.harvest_location %>
+			<button>
+			<%= link_to "UPDATE", edit_market_path(market) %>
+			</button>
+ 			<button>
+    		<%= link_to "REMOVE MARKET", market, method: :delete, data: { confirm: "Are you sure?" } %>
+   			</button>
+			<br>
+		<% end %>
+	  </div>

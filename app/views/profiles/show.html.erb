@@ -16,8 +16,13 @@
 				   <%= product.name %> <br>
 				<% end %>
 			</div>
-			<a href="/markets/update"><button> UPDATE MARKET</button></a>
-			<a href="/markets/new"><button>ADD MARKET</button></a>
+<!-- 			<a href="/markets/<%= @seller.id %>"><button>UPDATE MARKETS</button></a> -->
+			<button>
+			<%= link_to "YOUR MARKET", market_path(@seller) %>
+			</button>
+			<button>
+			<%= link_to "ADD MARKET", new_market_path %>
+			</button>
 		</div>
 
 	<%= form_tag(profiles_show_path, :method => "get", id: "search-form") do %>

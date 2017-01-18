@@ -1,2 +1,6 @@
-<h1>Markets#update</h1>
-<p>Find me in app/views/markets/update.html.erb</p>
+<h4>Your current market</h4>
+	<div class="produce-list">
+		<% @seller.products.each do |product| %>
+			<%= product.name %> <br>
+		<% end %>
+	</div>
