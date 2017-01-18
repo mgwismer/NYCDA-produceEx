@@ -1,13 +1,17 @@
-<h1>Profiles#index</h1>
-<p>Find me in app/views/profiles/index.html.erb</p>
+<h2 class="text-center">Markets</h2>
 
-
-<h2>Top Markets</h2>
-<div class="sellers">
+<div class="sellers row">
 	<% @sellers.each do |seller| %>
-		<div><%= seller.name %></div>
-		<div><%= seller.street_address %>
-		<div><%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></div>
-
+		<div class="col-sm-4">
+			<h3><%= seller.name %></h3>
+			<p><%= seller.street_address %><br>
+			<%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
+			<h4>Current Products:</h4>
+			<% seller.products.each do |product| %>
+				<ul>
+					<li><%= product.name %></li>
+				</ul>
+			<% end %>
+		</div>
 	 <% end %>
  </div>

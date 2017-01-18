@@ -1,7 +1,11 @@
 class ProfilesController < ApplicationController
   def index
-    @products = Product.all
-
+    @sellers = Seller.all
+    if params[:search]
+      @sellers = Seller.search(params[:search]).order("created_at DESC")
+    else
+      @sellers = Seller.all.order("created_at DESC")
+    end
   end
 
   def show
