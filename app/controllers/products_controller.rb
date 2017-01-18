@@ -3,6 +3,11 @@ class ProductsController < ApplicationController
   # before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
+    @sellers = Seller.all
+    @available_products = []
+    @sellers.each do |seller|
+      @available_products.push(seller.products)
+    end
     if params[:search]
       @products = Product.search(params[:search]).order("created_at DESC")
     else

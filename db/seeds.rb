@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+plu = PLU.all
+arr_plu = plu.to_a
+no_dupes_arr = arr_plu.uniq {|l|[l[1]]}
+new_plu = no_dupes_arr.to_h
 
-
-PLU.all.each do |key, value|
+new_plu.each do |key, value|
 	Product.create(name: value, PLU: key, category: 'fruit', organic: false)
 end
 
-PLU.all.each do |key, value|
-	Product.create(name: 'Organic ' + value, PLU: key, category: 'fruit', organic: true)
-end
