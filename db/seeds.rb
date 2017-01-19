@@ -7,12 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
-
-PLU.all.each do |key, value|
-	Product.create(name: value, PLU: key, category: 'fruit', organic: false)
-end
-
-PLU.all.each do |key, value|
-	Product.create(name: 'Organic ' + value, PLU: key, category: 'fruit', organic: true)
-end

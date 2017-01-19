@@ -18,6 +18,10 @@ a:hover {
 	color: $main-color;
 }
 
+input {
+	background-color: rgb(241, 241, 241);
+}
+
 ::-webkit-input-placeholder {
 	color: $main-color;
 }
@@ -53,10 +57,6 @@ a:hover {
 	color: white;
 }
 
-.field input {
-	outline-color: $background-color;
-}
-
 #search {
 	outline-color: $background-color;
 }
@@ -64,7 +64,10 @@ a:hover {
 .search_button {
 	background-color: $main-color;
 	color: white;
-	border-color: black
+}
+
+.search_button:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .actions input {
@@ -72,6 +75,22 @@ a:hover {
 	@extend .search_button
 }
 
+.form_container {
+	text-align: center;
+}
+
+.field input {
+	margin: 0 auto;
+	width: 20%;
+}
+
+input#seller_remember_me {
+
+}
+
+.field label {
+	margin-top: 20px;
+}
 
 .background_image {
 	width: 100%;

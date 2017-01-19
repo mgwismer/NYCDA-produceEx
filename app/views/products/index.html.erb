@@ -2,7 +2,7 @@
 
 <%= form_tag(products_path, :method => "get", id: "search-form") do %>
 	<%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
-  	<%= submit_tag "Search", :name => nil %>
+  	<%= submit_tag "Search", :name => nil, class: 'search_button' %>
 <% end %>
 
 <div class="row">
