@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   		@sellers = Seller.search(params[:search]).order("created_at DESC")
   	else
   		@sellers = Seller.all.order("created_at DESC")
-  	end
+  	end 
   end
 
   def about

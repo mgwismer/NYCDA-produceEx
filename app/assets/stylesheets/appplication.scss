@@ -78,7 +78,7 @@ a:hover {
 	background-image: url('apples.jpg'); //Add background_image
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	height: 500px;
+	height: 600px;
 	padding: 20px;
 	color: white;
 	text-align: center;
@@ -99,10 +99,6 @@ a:hover {
 
 .new_market {
 	text-align: center;
-}
-
-input#seller_remember_me {
-	background: $main-color;
 }
 
 .product_results {

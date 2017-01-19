@@ -1,25 +1,23 @@
 <div>
 	<div>
-		<h2><%= @product.name %></h2>
+		<h2 class="text-center"><%= @product.name %></h2>
 		<p>PLU:  <%= @product.PLU %></p>
 		<p>Category:  <%= @product.category %></p>
 		<p>Organic:  <%= @product.organic %></p>
 	</div>
 
-	<h3>Markets with <%= @product.name %> for sale:</h3>
-
+	<h3 class="text-center">Markets with <%= @product.name %> for Sale</h3>
+	<div class="row">
 	<% @markets.each do |market| %>
-		<div>
-			<h3>Seller: <%= market.seller.name %> </h3>
-			<p>Address: <%= market.seller.street_address %>  </p>
-			<p>  <%= market.seller.city %>,   <%= market.seller.state %>  <%= market.seller.zipcode %></p>
-			<p>link to market.seller.id show</p>
-
-			<h4>About <%= market.seller.name %>'s <%= @product.name %>: </h4>
-			<p>Description: <%= market.description %></p>
-			<p> Cost: $ <%= market.price %> <%= market.price_description %></p>
-			<p> Harvested on: <%= market.harvest_date %></p>
-			<p> Farm Location: <%= market.harvest_location %></p>
+		<div class="col-sm-6">
+			<h4><%= market.seller.name %></h4>
+			<p><%= market.seller.street_address %><br>
+			<%= market.seller.city %>,   <%= market.seller.state %>  <%= market.seller.zipcode %></p>
+			<p><b>Description:</b> <%= market.description %></p>
+			<p> <b>Cost: </b>$ <%= market.price %> <%= market.price_description %></p>
+			<p> <b>Harvested on: </b><%= market.harvest_date %></p>
+			<p> <b>Farm Location: </b><%= market.harvest_location %></p>
 		</div>
 	<% end %>
+	</div>
 </div>
