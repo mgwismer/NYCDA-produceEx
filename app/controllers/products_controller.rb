@@ -25,8 +25,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    #@sellers = Seller.all
-    # @seller = Seller.find(params[:seller_id])
     @product = Product.find(params[:id])
     @markets = Market.where(product_id: @product.id)
   end

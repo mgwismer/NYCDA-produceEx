@@ -5,31 +5,32 @@
 		<%= submit_tag "Search", :name => nil %>
 	<% end %>
 	<div class="row">
-		<% if @products %>
-			<%= form_for @market do |f| %>	
-				<div class="col-md-6">
-				  <% @products.each do |product| %>
-							<h5> <%= product.name%> <%= radio_button_tag(:product, product.id) %></h5>
-							<p>PLU:  <%= product.PLU %></p>
-					<% end %>
-				</div>
-				<br>
-				<div class="col-md-6">
-					<%= f.label :description, value:  "Description"%>
-					<%= f.text_field :description %><br>
-					<%= f.label :price, value:  "Price "%>
-					<%= f.text_field :price %><br>
-
-					<%= f.label :price_description, value: "Price Description" %>
-					<%= f.text_field :price_description %><br>
-
-					<%= f.label :harvest_date, value: "Harvest date" %>
-					<%= f.text_field :harvest_date %><br>
-
-					<%= f.label :harvest_location, value: "Harvest Location" %>
-					<%= f.text_field :harvest_location %><br>
-					<%= f.submit "ADD MARKET" %>
-				</div>
+	  <% if @products %>
+			<% if @products.length > 0 %>
+				<%= form_for @market do |f| %>	
+					<div class="col-md-6">
+					  <% @products.each do |product| %>
+								<h5> <%= product.name%> <%= radio_button_tag(:product, product.id) %></h5>
+								<p>PLU:  <%= product.PLU %></p>
+						<% end %>
+					</div>
+					<br>
+					<div class="mkt-form-div col-md-6">
+						<%= f.label :description, value:  "Description"%>
+						<%= f.text_field :description %><br>
+						<%= f.label :price, value:  "Price "%>
+						<%= f.text_field :price %><br>
+						<%= f.label :price_description, value: "Price Description" %>
+						<%= f.text_field :price_description %><br>
+						<%= f.label :harvest_date, value: "Harvest date" %>
+						<%= f.text_field :harvest_date %><br>
+						<%= f.label :harvest_location, value: "Harvest Location" %>
+						<%= f.text_field :harvest_location %><br>
+						<%= f.submit "ADD MARKET" %>
+					</div>
+				<% end %>
+			<% else %>
+	      <%= params[:search] %> <h5> is not in the PLU database</h5>
 			<% end %>
 		<% end %>
 	</div>
