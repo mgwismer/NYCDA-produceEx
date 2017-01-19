@@ -8,12 +8,25 @@
 
 #following codes removes duplicate names from the PLU database
 plu = PLU.all
-arr_plu = plu.to_a
-no_dupes_arr = arr_plu.uniq {|l|[l[1]]}
-new_plu = no_dupes_arr.to_h
 
-new_plu.each do |key, value|
-	Product.create(name: value, PLU: key, category: 'fruit', organic: false)
+plu.each do |key, value|
+	value.slice!('Large')
+	value.slice!('Medium')
+	value.slice!('Small')
+	value.slice!('Mini')
+	value.slice!('Retailer')
+	value.slice!('Extra Large')
+	value.slice!('Assigned')
+	value.slice!('Regular')
+	value.slice!('Flat')
+	value.lstrip!
 end
 
 
+another_plu = plu.to_a
+this_plu_again = another_plu.uniq {|l|[l[1]]}
+this_plu_again.to_h
+
+this_plu_again.each do |key, value|
+	Product.create(name: value, PLU: key, category: 'fruit', organic: false)
+end
