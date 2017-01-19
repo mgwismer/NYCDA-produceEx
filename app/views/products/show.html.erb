@@ -7,13 +7,6 @@
 	</div>
 
 	<h3>Markets with <%= @product.name %> for sale:</h3>
-	
-<h4> Available from these sellers </h4>
-<div class="seller-list">
-	<% @sellers.each do |seller| %>
-	  <%= @seller.name %>
-	<% end %>
-</div>
 
 	<% @markets.each do |market| %>
 		<div>
