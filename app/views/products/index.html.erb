@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="row">
-	<% @products.last(16).each do |product| %>
+	<% @products.last(4).each do |product| %>
 		<div class="col-sm-3 product_results">
 			<h4><%= product.name %></h4>
 			<p>PLU:  <%= product.PLU %></p>
@@ -14,5 +14,14 @@
 			<p>Organic:  <%= product.organic %></p>
 			<p><a href='/products/<%= "#{product.id}" %>'>View this Product</a></p>
 		</div>
+	<% end %>
+</div>
+	
+<h4> Available from these sellers </h4>
+<div class="seller-list">
+ 	<% if @avail_sellers %>
+		<% @avail_sellers.each do |seller| %>
+		  <%= seller.name %> <br>
+		<% end %>
 	<% end %>
 </div>
