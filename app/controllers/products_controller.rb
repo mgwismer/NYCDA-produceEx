@@ -3,20 +3,30 @@ class ProductsController < ApplicationController
   # before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sellers = Seller.all
-    @available_products = []
+    @products = Product.all
+    # @sellers = Seller.all
+    @sellers = []
+    @available_markets = []
     @sellers.each do |seller|
-      @available_products.push(seller.products)
+      seller.markets.each do |market|
+        @available_markets.push(market)
+      end
     end
-    if params[:search]
-      @products = Product.search(params[:search]).order("created_at DESC")
-    else
-      @products = Product.all.order("created_at DESC")
+    @available_markets.each do |market|
+      if market.product.name.downcase().include? params[:search]
+         @sellers.push(market.seller)
+      end
     end
+    # if params[:search]
+    #   @products1 = @available_markets.search(params[:search]).order("created_at DESC")
+    # else
+    #   @products = @available_products.all.order("created_at DESC")
+    # end
+    redirect_to markets_path
   end
 
   def show
-    @sellers = Seller.all
+    #@sellers = Seller.all
     # @seller = Seller.find(params[:seller_id])
     @product = Product.find(params[:id])
     @markets = Market.where(product_id: @product.id)
