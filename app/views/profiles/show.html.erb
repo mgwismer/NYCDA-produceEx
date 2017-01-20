@@ -1,49 +1,38 @@
-<h2>Edit a job</h2>
+<h2 class="text-center"><%= @seller.name %></h2>
 
-<div class="container">
-  <div class="row">
-		<div class="seller-container col-md-6">
-		  <h2>Your account </h2>
-			<h2>Seller Number: <%= @seller.id %></h2>
-			<h4>Seller Name: <%= @seller.name %></h4>
-			<h4>Seller email: <%= @seller.email %></h4>
-			<h4>Address: <%= @seller.street_address %></h4>
-			<h4>City <%= @seller.city %> </h4>
-			<h4>Zipcode <%= @seller.zipcode %> </h4>
-			<h4>Your current market</h4>
-			<div class="produce-list">
-				<% @seller.products.each do |product| %>
-				   <%= product.name %> <br>
-				<% end %>
-			</div>
+<div class="row">
+	<div class="seller-container col-sm-5">
+		<div>
+			<h3 class="text-center">Seller Information</h3>
+			<p><%= @seller.name %><br>
+				<%= @seller.street_address %><br>
+				<%= @seller.city %>, <%= @seller.state %> <%= @seller.zipcode %> </p>
+			<p><%= @seller.email %></p>
+			<p>Seller Number: <%= @seller.id %></p>
 			<% if current_seller %>
-			<button>
-			<%= link_to "YOUR MARKETS", market_path(@seller) %>
-			</button>
-			<button>
-			<%= link_to "ADD MARKET", new_market_path %>
-			</button>
-			<button>
-			<%= link_to "UPDATE ACCOUNT", edit_seller_registration_path %>
-			</button>
+				<%= button_to "Edit Account", edit_seller_registration_path, :method => "get", class: "search_button" %>
 			<% end %>
 		</div>
+	</div>
 
-	<%= form_tag(profiles_show_path, :method => "get", id: "search-form") do %>
-		<%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
-		<%= submit_tag "Search", :name => nil %>
-	<% end %>
-	<div class="row">
-		<% if @products %>	
-			  <% @products.each do |product| %>
-					<div class="col-sm-3">
-						<h4>Product Name: <%= product.name %></h4>
-						<p>PLU:  <%= product.PLU %></p>
-						<p>Category:  <%= product.category %></p>
-						<p>Organic:  <%= product.organic %></p>
-					</div>
-				<% end %>
+	<div class="produce-list col-sm-7">
+		<h3 class="text-center">Marketplace</h3>
+		<% if current_seller %>
+			<div class="row">
+				<div class="col-sm-6">
+					<%= button_to "Edit Marketplace", market_path(@seller), :method => "get", class: "search_button" %>
+				</div>
+				<div class="col-sm-6">
+					<%= button_to "Add to Marketplace", new_market_path, :method => "get", class: "search_button" %>
+				</div>
+			</div>
+		<% end %>
+		<% @seller.markets.each do |market| %>
+			<ul>
+				<li><p><b><%= market.product.name %>: </b>$ <%= market.price %> <%= market.price_description %>. <br> 
+					<%= market.description %> Harvested on <%= market.harvest_date %>, <%= market.harvest_location %>.</p>
+				</li>
+			</ul>
 		<% end %>
 	</div>
-  </div>
- </div>
+</div>

@@ -2,7 +2,7 @@
 
 <div class="sellers row">
 	<% @sellers.each do |seller| %>
-		<div class="col-sm-4">
+		<div class="col-sm-4 seller-container">
 			<h3><%= seller.name %></h3>
 			<p><%= seller.street_address %><br>
 			<%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
