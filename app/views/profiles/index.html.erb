@@ -3,7 +3,7 @@
 <div class="sellers row">
 	<% @sellers.each do |seller| %>
 		<div class="col-sm-4 seller-container">
-			<h3><%= seller.name %></h3>
+			<h3><%= link_to seller.name, profiles_show_path(:id => seller.id) %></h3>
 			<p><%= seller.street_address %><br>
 			<%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
 			<table>
