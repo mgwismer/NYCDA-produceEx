@@ -1,10 +1,8 @@
 <h2 class="text-center">Markets</h2>
 
-<<<<<<< HEAD
-=======
 <div class="sellers row">
 	<% @sellers.each do |seller| %>
-		<div class="col-sm-4">
+		<div class="col-sm-4 seller-container">
 			<h3><%= seller.name %></h3>
 			<p><%= seller.street_address %><br>
 			<%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
@@ -17,4 +15,3 @@
 		</div>
 	 <% end %>
  </div>
->>>>>>> 9d6d7b0e5b81c3c6f4d20ec1b7bb0f3533a91c11
