@@ -6,12 +6,21 @@
 			<h3><%= seller.name %></h3>
 			<p><%= seller.street_address %><br>
 			<%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
-			<h4>Current Products:</h4>
-			<% seller.products.each do |product| %>
-				<ul>
-					<li><%= product.name %></li>
-				</ul>
+			<table>
+			<tr>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Description</th>
+			</tr>
+			<% seller.markets.last(3).each do |market| %>
+			<tr>
+				<td><%= market.product.name %></td> 
+				<td><%= market.price %></td>
+				<td><span class="small_font_desc"><%= market.description.first(75) %></span></td>
+			</tr>
+					
 			<% end %>
+			</table>
 		</div>
 	 <% end %>
  </div>
