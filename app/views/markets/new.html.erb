@@ -8,6 +8,7 @@
 	  <% if @products %>
 			<% if @products.length > 0 %>
 				<%= form_for @market do |f| %>	
+				  	<p><%= flash[:market_error] if flash[:market_error] %></p>
 					<div class="col-md-6">
 					  <% @products.each do |product| %>
 								<h5> <%= product.name %> <%= radio_button_tag(:product, product.id) %></h5>

@@ -15,7 +15,7 @@
 			<% seller.markets.last(3).each do |market| %>
 			<tr>
 				<td><%= market.product.name %></td> 
-				<td><%= market.price %></td>
+				<td><%= market.price %> <%= market.price_description %></td>
 				<td><span class="small_font_desc"><%= market.description.first(75) %></span></td>
 			</tr>
 					
