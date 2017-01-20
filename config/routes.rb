@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
  resources :products, :markets
 
- devise_for :sellers, controllers: { registrations: "registrations", 
+ devise_for :sellers, controllers: {registrations: "sellers/registrations",
       sessions: "sellers/sessions" 
     }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

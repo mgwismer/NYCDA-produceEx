@@ -1,7 +1,28 @@
 class Sellers::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
+  def edit
+  end
 
+  protected
+
+  def after_sign_up_path_for(resource)
+      '/sellers/edit'
+  end
+
+  def after_update_path_for(resource)
+      '/profiles/show'
+  end
+
+  private
+
+  def sign_up_params
+    params.require(:seller).permit(:name, :email, :password)
+  end
+
+  def account_update_params
+    params.require(:seller).permit(:name, :email, :password, :password_confirmation, :current_password, :street_address, :city, :state, :zipcode)
+  end
   # GET /resource/sign_up
   # def new
   #   super
@@ -49,9 +70,9 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    super(resource)
-  end
+  # def after_sign_up_path_for(resource)
+  #   super(resource)
+  # end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
