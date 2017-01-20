@@ -9,9 +9,10 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @seller = current_seller
-    if !@seller.markets
-      @seller.markets.create()
+    if params[:id]
+      @seller = Seller.find(params[:id])
+    else
+      @seller = current_seller
     end
     if params[:search]
       @products = Product.search(params[:search]).order("created_at DESC")
