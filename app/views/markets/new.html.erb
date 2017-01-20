@@ -1,37 +1,39 @@
 
-<div class="container">
+<div class="row">
+	<h4>Search for a product to add to your marketplace.</h4>
 	<%= form_tag(new_market_path, :method => "get", id: "search-form") do %>
 		<%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
-		<%= submit_tag "Search", :name => nil %>
+		<%= submit_tag "Search", :name => nil, class: "search_button" %>
 	<% end %>
-	<div class="row">
-	  <% if @products %>
-			<% if @products.length > 0 %>
-				<%= form_for @market do |f| %>	
-					<div class="col-md-6">
-					  <% @products.each do |product| %>
-								<h5> <%= product.name%> <%= radio_button_tag(:product, product.id) %></h5>
-								<p>PLU:  <%= product.PLU %></p>
-						<% end %>
-					</div>
-					<br>
-					<div class="mkt-form-div col-md-6">
-						<%= f.label :description, value:  "Description"%>
-						<%= f.text_field :description %><br>
-						<%= f.label :price, value:  "Price "%>
-						<%= f.text_field :price %><br>
-						<%= f.label :price_description, value: "Price Description" %>
-						<%= f.text_field :price_description %><br>
-						<%= f.label :harvest_date, value: "Harvest date" %>
-						<%= f.text_field :harvest_date %><br>
-						<%= f.label :harvest_location, value: "Harvest Location" %>
-						<%= f.text_field :harvest_location %><br>
-						<%= f.submit "ADD MARKET" %>
-					</div>
-				<% end %>
-			<% else %>
-	      <%= params[:search] %> <h5> is not in the PLU database</h5>
-			<% end %>
-		<% end %>
-	</div>
 </div>
+
+<div class="row">
+	<% if @products %>
+		<% if @products.length > 0 %>
+			<h3>Please describe your product.</h3>
+			<%= form_for @market do |f| %>	
+				<div class="mkt-form-div col-md-4 text-left">
+					<%= f.label :description, value:  "Product Description: "%><br>
+					<%= f.text_field :description, :size=>"40", placeholder: "Example: Crisp and green, freshly picked." %><br>
+					<%= f.label :price, value:  "Price: "%><br>
+					<%= f.text_field :price, placeholder: "00.00"%><br>
+					<%= f.label :price_description, value: "Price Description: " %><br>
+					<%= f.text_field :price_description, placeholder: "Example: per pound" %><br>
+					<%= f.label :harvest_date, value: "Harvest date: " %><br>
+					<%= f.text_field :harvest_date, placeholder: "MM/DD/YYYY" %><br>
+					<%= f.label :harvest_location, value: "Harvest Location: " %><br>
+					<%= f.text_field :harvest_location, placeholder: "Farm, City, State" %><br><br>
+					<%= f.submit "Add to Marketplace", class: "search_button" %>
+				</div>
+				<div class="col-md-8 text-left">
+			  		<% @products.each do |product| %>
+						<p><%= radio_button_tag(:product, product.id) %>   <%= product.name%>. PLU: <%= product.PLU %></p>
+					<% end %>
+				</div>
+			<% end %>
+		<% else %>
+      		<%= params[:search] %> <h4> This item is not in the PLU database. Please try again.</h4>
+		<% end %>
+	<% end %>
+</div>
+
