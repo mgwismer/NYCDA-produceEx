@@ -10,7 +10,7 @@
 
 <% @sellers.last(4).each do |seller| %>
 <div class="col-sm-3 new_market">
-	<div><%= link_to seller.name, profiles_show_path %></div>
+	<div><%= link_to seller.name, profiles_show_path(:id => seller.id) %></div>
 	<div><%= seller.street_address %></div>
 	<div><%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></div>
 </div>

@@ -16,7 +16,7 @@
 				   <%= product.name %> <br>
 				<% end %>
 			</div>
-<!-- 			<a href="/markets/<%= @seller.id %>"><button>UPDATE MARKETS</button></a> -->
+			<% if current_seller %>
 			<button>
 			<%= link_to "YOUR MARKETS", market_path(@seller) %>
 			</button>
@@ -26,6 +26,7 @@
 			<button>
 			<%= link_to "UPDATE ACCOUNT", edit_seller_registration_path %>
 			</button>
+			<% end %>
 		</div>
 
 	<%= form_tag(profiles_show_path, :method => "get", id: "search-form") do %>
