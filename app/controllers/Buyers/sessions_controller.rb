@@ -1,13 +1,6 @@
-class Sellers::SessionsController < Devise::SessionsController
+class Buyers::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
- protected
- def after_sign_out_path_for(resource)
-  'root'
- end
 
- def after_sign_in_path_for(resource)
-  '/profiles/show'
- end
   # GET /resource/sign_in
   # def new
   #   super

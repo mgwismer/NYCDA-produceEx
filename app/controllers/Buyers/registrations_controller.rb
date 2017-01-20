@@ -1,4 +1,4 @@
-class Sellers::RegistrationsController < Devise::RegistrationsController
+class Buyers::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
   def edit
@@ -7,21 +7,21 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
-      '/sellers/edit'
+      '/buyers/edit'
   end
 
   def after_update_path_for(resource)
-      '/profiles/show'
+      '/buyer_profiles/show'
   end
 
   private
 
   def sign_up_params
-    params.require(:seller).permit(:name, :email, :password)
+    params.require(:buyer).permit(:email, :password)
   end
 
   def account_update_params
-    params.require(:seller).permit(:name, :email, :password, :password_confirmation, :current_password, :street_address, :city, :state, :zipcode)
+    params.require(:buyer).permit(:fname, :lname, :email, :password, :password_confirmation, :current_password, :street_address, :city, :state, :zipcode)
   end
 
   # GET /resource/sign_up
