@@ -4,6 +4,7 @@
 	<div class="seller-container col-sm-5">
 		<div>
 			<h3 class="text-center">Seller Information</h3>
+			<%= image_tag @seller.avatar.url %>
 			<p><%= @seller.name %><br>
 				<%= @seller.street_address %><br>
 				<%= @seller.city %>, <%= @seller.state %> <%= @seller.zipcode %> </p>
