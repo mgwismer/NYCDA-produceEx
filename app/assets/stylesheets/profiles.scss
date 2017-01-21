@@ -1,3 +1,32 @@
 // Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.seller-container {
+	text-align: center;
+}
+
+.seller-container table {
+	border-collapse: collapse;
+}
+
+
+.seller-container table, td, th {
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+.seller-container th {
+	height: 30px;
+	padding: 10px;
+}
+
+.seller-container td {
+	padding: 5px;
+}
+
+.small_font_desc {
+	font-size: .7em;
+}

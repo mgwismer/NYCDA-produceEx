@@ -12,7 +12,7 @@
  		<h4> Available from these sellers: </h4>
 		<% @avail_sellers.each do |seller| %>
 		  <div class="seller-container col-sm-4">
-			  <p><b><%= seller.name %></b><br>
+			  <p><%= link_to seller.name, profiles_show_path(:id => seller.id) %><br>
 			  <%= seller.street_address %><br>
 			  <%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
 		  </div>
@@ -29,5 +29,8 @@
 		<% end %>
 	<% end %>
 </div>
+
+
+
 
 

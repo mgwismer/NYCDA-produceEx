@@ -23,7 +23,6 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
   def account_update_params
     params.require(:seller).permit(:name, :email, :password, :password_confirmation, :current_password, :street_address, :city, :state, :zipcode)
   end
-
   # GET /resource/sign_up
   # def new
   #   super

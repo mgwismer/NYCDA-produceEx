@@ -1,13 +1,16 @@
-	<h4>Your current markets</h4>
-	  <div class="market-list">
-		<% @seller.markets.each do |market| %>
-			<%= market.product.name %> from <%= market.harvest_location %>
-			<button>
-			<%= link_to "UPDATE", edit_market_path(market) %>
-			</button>
- 			<button>
-    		<%= link_to "REMOVE MARKET", market, method: :delete, data: { confirm: "Are you sure?" } %>
-   			</button>
-			<br>
-		<% end %>
-	  </div>
+<h3 class="text-center">Your Marketplace</h3>
+
+<% @seller.markets.each do |market| %>
+	<div class="row">
+		<div class="col-sm-1">
+			<%= button_to "Remove", market, method: :delete, data: { confirm: "Are you sure?" }, class: "search_button" %>
+		</div>
+
+		<div class="col-sm-8">
+			<p><b><%= market.product.name %></b>: $<%= market.price %> <%= market.price_description %> from <%= market.harvest_location %> on <%= market.harvest_date %>. PLU: <%= market.product.PLU %>. Description: <%= market.description %> </p>
+		</div>
+		<div class="col-sm-3">
+			<%= button_to "Update", edit_market_path(market), :method => "get", class: "search_button" %>
+		</div>
+	</div>
+<% end %>
