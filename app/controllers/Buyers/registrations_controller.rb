@@ -1,6 +1,6 @@
 class Buyers::RegistrationsController < Devise::RegistrationsController
-# before_action :configure_sign_up_params, only: [:create]
-# before_action :configure_account_update_params, only: [:update]
+ # before_action :configure_sign_up_params, only: [:create]
+ # before_action :configure_account_update_params, only: [:update]
   def edit
   end
 
@@ -17,11 +17,11 @@ class Buyers::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:buyer).permit(:email, :password)
+    params.require(:buyer).permit(:fname, :email, :password)
   end
 
   def account_update_params
-    params.require(:buyer).permit(:fname, :lname, :email, :password, :password_confirmation, :current_password, :street_address, :city, :state, :zipcode)
+    params.require(:buyer).permit(:fname, :lname, :email, :password, :password_confirmation, :current_password, :street, :city, :state, :zipcode)
   end
 
   # GET /resource/sign_up
