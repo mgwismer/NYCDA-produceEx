@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
   
   # before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+ 
   def index
     @products = Product.all
-    # @sellers = Seller.all
+    # code searches for products on the market
     @sellers = Seller.all
     @avail_sellers = []
     @available_markets = []
@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
         end
       end
     end
+    @avail_sellers.uniq!
   end
 
   def show
