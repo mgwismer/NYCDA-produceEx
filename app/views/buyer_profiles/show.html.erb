@@ -1,2 +1,37 @@
-<h1>BuyerProfiles#show</h1>
-<p>Find me in app/views/buyer_profiles/show.html.erb</p>
+<h2 class="text-center"><%= @buyer.fname buyer.lname%></h2>
+
+<div class="row">
+	<div class="buyer-container col-sm-5">
+		<div>
+			<h3 class="text-center">Buyer Information</h3>
+			<p><%= @buyer.fname %><br>
+				<%= @buyer.street %><br>
+				<%= @buyer.city %>, <%= @buyer.state %> <%= @buyer.zipcode %> </p>
+			<p><%= @buyer.email %></p>
+			<p>Seller Number: <%= @buyer.id %></p>
+			<% if current_buyer %>
+				<%= button_to "Edit Account", edit_seller_registration_path, :method => "get", class: "search_button" %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="review-list col-sm-7">
+		<h3 class="text-center">Reviews</h3>
+		<% if current_buyer %>
+			<div class="row">
+				<div class="col-sm-6">
+					<%= button_to "Edit Reviews", review_path(@buyer), :method => "get", class: "search_button" %>
+				</div>
+				<div class="col-sm-6">
+					<%= button_to "Create Review", new_review_path, :method => "get", class: "search_button" %>
+				</div>
+			</div>
+		<% end %>
+		<% @buyer.reviews.each do |review| %>
+			<ul>
+				<li><p><b><%= review.seller.name %>: </b>$ </p>
+				</li>
+			</ul>
+		<% end %>
+	</div>
+</div>
