@@ -28,8 +28,12 @@ class MarketsController < ApplicationController
     @market = Market.new(market_params)
     @market.product_id = params[:product]
     @market.seller_id = current_seller.id
-    @market.save
-    redirect_to profiles_show_path
+    if @market.save
+      redirect_to profiles_show_path
+    else 
+      flash[:market_error] = "Market Not Saved"
+      redirect_back(fallback_location: new_market_path)
+    end
   end
 
   def update

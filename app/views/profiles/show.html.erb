@@ -10,7 +10,9 @@
 			<p><%= @seller.email %></p>
 			<p>Seller Number: <%= @seller.id %></p>
 			<% if current_seller %>
+			<% if current_seller.id == @seller.id %>
 				<%= button_to "Edit Account", edit_seller_registration_path, :method => "get", class: "search_button" %>
+			<% end %>
 			<% end %>
 		</div>
 	</div>
@@ -18,14 +20,16 @@
 	<div class="produce-list col-sm-7">
 		<h3 class="text-center">Marketplace</h3>
 		<% if current_seller %>
-			<div class="row">
-				<div class="col-sm-6">
-					<%= button_to "Edit Marketplace", market_path(@seller), :method => "get", class: "search_button" %>
+			<% if current_seller.id == @seller.id %>
+				<div class="row">
+					<div class="col-sm-6">
+						<%= button_to "Edit Marketplace", market_path(@seller), :method => "get", class: "search_button" %>
+					</div>
+					<div class="col-sm-6">
+						<%= button_to "Add to Marketplace", new_market_path, :method => "get", class: "search_button" %>
+					</div>
 				</div>
-				<div class="col-sm-6">
-					<%= button_to "Add to Marketplace", new_market_path, :method => "get", class: "search_button" %>
-				</div>
-			</div>
+			<% end %>
 		<% end %>
 		<% @seller.markets.each do |market| %>
 			<ul>
