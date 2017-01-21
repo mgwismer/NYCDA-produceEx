@@ -1,10 +1,11 @@
-<h2 class="text-center"><%= @buyer.fname buyer.lname%></h2>
+<h2 class="text-center"><%= @buyer.fname %> 
+<%= @buyer.lname%></h2>
 
 <div class="row">
 	<div class="buyer-container col-sm-5">
 		<div>
 			<h3 class="text-center">Buyer Information</h3>
-			<p><%= @buyer.fname %><br>
+			<p>Hello <%= @buyer.fname %><br>
 				<%= @buyer.street %><br>
 				<%= @buyer.city %>, <%= @buyer.state %> <%= @buyer.zipcode %> </p>
 			<p><%= @buyer.email %></p>
