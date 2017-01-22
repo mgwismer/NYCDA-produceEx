@@ -1,20 +1,25 @@
 <h2 class="text-center"><%= @seller.name %></h2>
-
 <div class="row">
 	<div class="seller-container col-sm-5">
 		<div>
 			<h3 class="text-center">Seller Information</h3>
-			<%= image_tag @seller.avatar.url %>
-			<p><%= @seller.name %><br>
-				<%= @seller.street_address %><br>
-				<%= @seller.city %>, <%= @seller.state %> <%= @seller.zipcode %> </p>
-			<p><%= @seller.email %></p>
-			<p>Seller Number: <%= @seller.id %></p>
-			<% if current_seller %>
-			<% if current_seller.id == @seller.id %>
-				<%= button_to "Edit Account", edit_seller_registration_path, :method => "get", class: "search_button" %>
-			<% end %>
-			<% end %>
+			<div class="row">
+				<div class="img-avatar col-sm-5">
+					<%= image_tag @seller.avatar.url %>
+				</div>
+				<div class="col-sm-7 text-left"><p><%= @seller.name %><br>
+					<%= @seller.street_address %><br>
+					<%= @seller.city %>, <%= @seller.state %> <%= @seller.zipcode %> </p>
+					<p><%= @seller.email %></p>
+					<p>Seller Number: <%= @seller.id %></p>
+				
+					<% if current_seller %>
+						<% if current_seller.id == @seller.id %>
+							<%= button_to "Edit Account", edit_seller_registration_path, :method => "get", class: "search_button" %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
 		</div>
 	</div>
 

@@ -3,9 +3,17 @@
 <div class="sellers row">
 	<% @sellers.each do |seller| %>
 		<div class="col-sm-4 seller-container">
-			<h3><%= link_to seller.name, profiles_show_path(:id => seller.id) %></h3>
-			<p><%= seller.street_address %><br>
-			<%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
+			<div class="row">
+				<div class="col-sm-5">
+					<%= image_tag seller.avatar.url, class: "small-avatar" %>
+				</div>
+				<div class="col-sm-7 text-left">
+					<h3><%= link_to seller.name, profiles_show_path(:id => seller.id) %></h3>
+					<p><%= seller.street_address %><br>
+					<%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
+				</div>
+			</div>
+			
 			<table>
 			<tr>
 				<th>Product</th>
@@ -21,6 +29,7 @@
 					
 			<% end %>
 			</table>
+
 		</div>
 	 <% end %>
  </div>
