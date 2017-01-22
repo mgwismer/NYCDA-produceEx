@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
            @avail_sellers.push(market.seller)
         end
       end
+      @avail_sellers.uniq!
     end
     @avail_sellers.uniq!
   end

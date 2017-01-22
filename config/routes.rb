@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'buyer_profiles/index'
+
+  get 'buyer_profiles/show'
+
+  get 'buyer_profiles/new'
+
+  get 'buyer_profiles/create'
+
+  get 'buyer_profiles/edit'
+
+  get 'buyer_profiles/update'
+
+  get 'buyer_profiles/destroy'
+
  get 'profiles/index'
 
  get 'profiles/show'
@@ -22,10 +36,12 @@ Rails.application.routes.draw do
 
  get '/help', to: "static_pages#help"
 
- resources :products, :markets
+ resources :products, :markets, :reviews
 
- devise_for :sellers, controllers: {registrations: "sellers/registrations",
-      sessions: "sellers/sessions" 
+ devise_for :sellers, controllers: { registrations: "sellers/registrations", 
+    }
+ devise_for :buyers, controllers: { registrations: "buyers/registrations", 
+      sessions: "buyers/sessions" 
     }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
