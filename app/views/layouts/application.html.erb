@@ -16,7 +16,7 @@
   
   			<% if !(current_seller||current_buyer) %>
           <li><%= link_to "Seller Sign In", new_seller_session_path %></li>
-          <li><%= link_to "Buyer Sign In", new_buyer_registration_path %></li>
+          <li><%= link_to "Buyer Sign In", new_buyer_session_path %></li>
         <% elsif current_seller %>
           <li> <%= link_to "Seller Profile", profiles_show_path %> </li>
   			  <li><%= link_to("Sign out", destroy_seller_session_path, :method => :delete) %></li>

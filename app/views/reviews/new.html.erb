@@ -1,2 +1,13 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<h4> All Sellers</h4>
+<div class="seller-list-div">
+	<% @sellers.each do |seller| %>
+		<p> Name: </p> <%= seller.name %> <br>
+		<%= form_for @review do |f| %>
+			<%= f.text_field :comment, :size => 80 %>
+			<%= f.label :rating %>
+			<%= f.text_field :rating, :size => 5 %>
+		  <%= hidden_field_tag(:seller_id =>seller.id) %>
+		  <%= submit_tag "ADD REVIEW", :seller_id => seller.id, class: "search_button" %>
+		<% end %>
+	<% end %>
+</div>
