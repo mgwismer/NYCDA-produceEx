@@ -18,8 +18,8 @@ class RegistrationsController < Devise::RegistrationsController
  #    params.require(:seller).permit(:name, :email, :password)
  #  end
 
- #  def account_update_params
- #   	params.require(:seller).permit(:name, :email, :password, :password_confirmation, :current_password, :street_address, :city, :state, :zipcode)
- #  end
+  def account_update_params
+   	params.require(:seller).permit(:name, :email, :password, :password_confirmation, :current_password, :street_address, :city, :state, :zipcode, :avatar)
+  end
 
 end 
