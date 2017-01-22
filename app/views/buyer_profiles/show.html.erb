@@ -2,16 +2,16 @@
 <%= @buyer.lname%></h2>
 
 <div class="row">
-	<div class="buyer-container col-sm-5">
+	<div class="seller-container col-sm-5">
 		<div>
 			<h3 class="text-center">Buyer Information</h3>
-			<p>Hello <%= @buyer.fname %><br>
+			<p><%= @buyer.fname %> <%= @buyer.lname %><br>
 				<%= @buyer.street %><br>
-				<%= @buyer.city %>, <%= @buyer.state %> <%= @buyer.zipcode %> </p>
+				<%= @buyer.city %>, <%= @buyer.state %>, <%= @buyer.zipcode %> </p>
 			<p><%= @buyer.email %></p>
-			<p>Seller Number: <%= @buyer.id %></p>
+			<p>Buyer Number: <%= @buyer.id %></p>
 			<% if current_buyer %>
-				<%= button_to "Edit Account", edit_seller_registration_path, :method => "get", class: "search_button" %>
+				<%= button_to "Edit Account", edit_buyer_registration_path, :method => "get", class: "search_button" %>
 			<% end %>
 		</div>
 	</div>
