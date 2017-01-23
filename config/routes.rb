@@ -39,6 +39,7 @@ Rails.application.routes.draw do
  resources :products, :markets, :reviews
 
  devise_for :sellers, controllers: { registrations: "sellers/registrations", 
+      sessions: "sellers/sessions" 
     }
  devise_for :buyers, controllers: { registrations: "buyers/registrations", 
       sessions: "buyers/sessions" 
