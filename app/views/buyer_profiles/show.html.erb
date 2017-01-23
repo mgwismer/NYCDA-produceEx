@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="review-list col-sm-7">
-		<h3 class="text-center">Reviews</h3>
+		<h3 class="text-center"><%= @buyer.fname %>'s Reviews</h3>
 		<% if current_buyer %>
 			<div class="row">
 				<div class="col-sm-6">
@@ -30,7 +30,7 @@
 		<% end %>
 		<% @buyer.reviews.each do |review| %>
 			<ul>
-				<li><p><b><%= review.seller.name %>: </b>$ </p>
+				<li><p><b><%= review.seller.name %>: </b> <%= review.comment %></p>
 				</li>
 			</ul>
 		<% end %>
