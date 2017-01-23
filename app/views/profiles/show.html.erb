@@ -1,3 +1,4 @@
+
 <h2 class="text-center"><%= @seller.name %></h2>
 <div class="row">
 	<div class="seller-container col-sm-5">
@@ -46,3 +47,17 @@
 		<% end %>
 	</div>
 </div>
+
+
+<div id="map">
+</div>
+<p class="latitude"><%= @seller.latitude %></p>
+<p class="longitude"><%= @seller.longitude %></p>
+
+
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%= GOOGLE_MAPS_API_KEY %>&callback=initMap">
+    </script>
+
+
+
