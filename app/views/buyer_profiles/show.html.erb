@@ -1,0 +1,38 @@
+<h2 class="text-center"><%= @buyer.fname %> 
+<%= @buyer.lname%></h2>
+
+<div class="row">
+	<div class="seller-container col-sm-5">
+		<div>
+			<h3 class="text-center">Buyer Information</h3>
+			<p><%= @buyer.fname %> <%= @buyer.lname %><br>
+				<%= @buyer.street %><br>
+				<%= @buyer.city %>, <%= @buyer.state %>, <%= @buyer.zipcode %> </p>
+			<p><%= @buyer.email %></p>
+			<p>Buyer Number: <%= @buyer.id %></p>
+			<% if current_buyer %>
+				<%= button_to "Edit Account", edit_buyer_registration_path, :method => "get", class: "search_button" %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="review-list col-sm-7">
+		<h3 class="text-center"><%= @buyer.fname %>'s Reviews</h3>
+		<% if current_buyer %>
+			<div class="row">
+				<div class="col-sm-6">
+					<%= button_to "Edit Reviews", review_path(@buyer), :method => "get", class: "search_button" %>
+				</div>
+				<div class="col-sm-6">
+					<%= button_to "Review Sellers", new_review_path, :method => "get", class: "search_button" %>
+				</div>
+			</div>
+		<% end %>
+		<% @buyer.reviews.each do |review| %>
+			<ul>
+				<li><p><b><%= review.seller.name %>: </b> <%= review.comment %></p>
+				</li>
+			</ul>
+		<% end %>
+	</div>
+</div>

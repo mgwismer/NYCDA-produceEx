@@ -19,7 +19,16 @@
 							<%= button_to "Edit Account", edit_seller_registration_path, :method => "get", class: "search_button" %>
 						<% end %>
 					<% end %>
+
 				</div>
+			</div>
+			<div class="review-div">
+				<h3> Reviews for <%= @seller.name %> </h3>
+				<% @seller.reviews.each do |review| %>
+  					<ul>
+  						<li class="text-left">"<%= review.comment %>"<p> Rating: <%= review.rating %></p></li>
+  					</ul>
+				<% end %>
 			</div>
 		</div>
 	</div>

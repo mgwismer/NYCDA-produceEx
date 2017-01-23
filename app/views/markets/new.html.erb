@@ -28,13 +28,13 @@
 					<%= f.submit "Add to Marketplace", class: "search_button" %>
 				</div>
 				<div class="col-md-8 text-left">
-			  		<% @products.each do |product| %>
+			  	<% @products.each do |product| %>
 						<p><%= radio_button_tag(:product, product.id) %>   <%= product.name%>. PLU: <%= product.PLU %></p>
 					<% end %>
 				</div>
 			<% end %>
 		<% else %>
-      		<%= params[:search] %> <h4> This item is not in the PLU database. Please try again.</h4>
+      <%= params[:search] %> <h4> This item is not in the PLU database. Please try again.</h4>
 		<% end %>
 	<% end %>
 </div>
