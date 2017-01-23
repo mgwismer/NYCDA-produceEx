@@ -7,6 +7,7 @@ end
 gem 'devise'
 gem 'paperclip'
 gem 'plu'
+gem 'geocoder'
 gem 'bootstrap-sass'
 gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
