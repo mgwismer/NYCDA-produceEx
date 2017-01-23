@@ -7,9 +7,19 @@
 	<% end %>
 </div>
 
+<% @products.last(4).each do |product| %>
+	<div class="col-sm-3 product_results">
+		<h4><%= product.name %></h4>
+		<p>PLU:  <%= product.PLU %></p>
+		<p>Category:  <%= product.category %></p>
+		<p>Organic:  <%= product.organic %></p>
+		<p><a href='/products/<%= "#{product.id}" %>'>View this Product</a></p>
+	</div>
+<% end %>
+
 <div class="seller-list row">
- 	<% if @avail_sellers %>
- 		<h4> Available from these sellers: </h4>
+<!--  	< if @avail_sellers %> -->
+ 		<h4> These sellers currently have <%= params[:search] %>: </h4>
 		<% @avail_sellers.each do |seller| %>
 		  <div class="seller-container col-sm-4">
 			  <p><%= link_to seller.name, profiles_show_path(:id => seller.id) %><br>
@@ -17,17 +27,12 @@
 			  <%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
 		  </div>
 		<% end %>
-	<% else %>
-		<% @products.last(12).each do |product| %>
-			<div class="col-sm-3 product_results">
-				<h4><%= product.name %></h4>
-				<p>PLU:  <%= product.PLU %></p>
-				<p>Category:  <%= product.category %></p>
-				<p>Organic:  <%= product.organic %></p>
-				<p><a href='/products/<%= "#{product.id}" %>'>View this Product</a></p>
-			</div>
-		<% end %>
-	<% end %>
+<!-- 	< else %> -->
+		<div class="col-sm-3 product_results">
+		<p>Sorry, <%= params[:search] %> is currently unavailable.</p>
+		</div>
+		
+<!-- 	< end %> -->
 </div>
 
 
