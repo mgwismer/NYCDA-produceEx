@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.seller_id = params[:seller_id]
     @review.buyer_id = current_buyer.id
+    @review.errors.full_messages
     if @review.save
       redirect_to buyer_profiles_show_path
     else 

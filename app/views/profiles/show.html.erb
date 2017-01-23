@@ -49,7 +49,7 @@
 	<div class="review-div">
  		<h4> Reviews for <%= @seller.name %> </h4>
  		<% @seller.reviews.each do |review| %>
- 		  <%= review.comment %>
+ 		  <%= review.comment %> <br>
  		<% end %>
 	</div>
 </div>
