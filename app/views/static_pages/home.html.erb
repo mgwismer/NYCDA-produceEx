@@ -1,18 +1,29 @@
 <div class="background_image">
-<h1>Produce Land</h1>
-<p>The Freshest Produce In The World</p>
-<% if !current_seller %>
-<%= button_to "Sign Up", new_seller_registration_path, :method => "get", id: "signup_frontpage" %>
-<% end %>
+	<div class="container">
+		<h1>Produce Land</h1>
+		<p>The Freshest Produce In The World</p>
+		<div class="row">
+			<% if !(current_seller||current_buyer) %>
+			  <div class="col-md-6">
+				  <p> Seller: Find markets for your harvest</p>
+					<%= button_to "Sign Up", new_seller_registration_path, :method => "get", class: "signup_frontpage" %>
+				</div>
+				<div class="col-md-6">
+					<p>Buyer: Find fresh produce</p>
+					<%= button_to "Sign Up", new_buyer_registration_path, :method => "get", class: "signup_frontpage" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>
 
 <h2 style="text-align: center">New Sellers To Produce Land</h2>
 
 <% @sellers.last(4).each do |seller| %>
-<div class="col-sm-3 new_market">
-	<div><%= link_to seller.name, profiles_show_path(:id => seller.id) %></div>
-	<div><%= seller.street_address %></div>
-	<div><%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></div>
-</div>
+	<div class="col-sm-3 new_market">
+		<div><%= link_to seller.name, profiles_show_path(:id => seller.id) %></div>
+		<div><%= seller.street_address %></div>
+		<div><%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></div>
+	</div>
 <% end %>
 

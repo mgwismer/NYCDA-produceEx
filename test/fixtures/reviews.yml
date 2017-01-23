@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buyer: one
+  seller: one
+  comment: MyText
+  rating: 1
+
+two:
+  buyer: two
+  seller: two
+  comment: MyText
+  rating: 1
