@@ -6,7 +6,7 @@
 			<%= f.text_field :comment, :size => 80 %>
 			<%= f.label :rating %>
 			<% (1..5).each do |num| %>
-				<%= radio_button_tag(:rating, num.to_i) %>  
+				<%= radio_button_tag(:rating, num) %>  
 			<% end %>
 		  <%= hidden_field_tag(:seller_id, seller.id) %>
 		  <%= submit_tag "ADD REVIEW", "seller_id" => seller.id, class: "search_button" %>

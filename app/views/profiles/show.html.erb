@@ -25,7 +25,7 @@
 				<h3> Reviews for <%= @seller.name %> </h3>
 				<% @seller.reviews.each do |review| %>
   					<ul>
-  						<li class="text-left">"<%= review.comment %>"</li>
+  						<li class="text-left">"<%= review.comment %>"<p> Rating: <%= review.rating %></p></li>
   					</ul>
 				<% end %>
 			</div>

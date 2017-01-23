@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.rating = params[:rating]
     @review.seller_id = params[:seller_id]
     @review.buyer_id = current_buyer.id
     @review.errors.full_messages
