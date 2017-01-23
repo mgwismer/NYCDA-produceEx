@@ -5,36 +5,60 @@
 		<%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
   		<%= submit_tag "Search", :name => nil, class: 'search_button' %>
 	<% end %>
+	<h3>Visit a Seller below to see all items for sale or use the search box to find a specific item.</h3>
 </div>
 
-<% @products.last(4).each do |product| %>
-	<div class="col-sm-3 product_results">
-		<h4><%= product.name %></h4>
-		<p>PLU:  <%= product.PLU %></p>
-		<p>Category:  <%= product.category %></p>
-		<p>Organic:  <%= product.organic %></p>
-		<p><a href='/products/<%= "#{product.id}" %>'>View this Product</a></p>
+<% if params[:search] == nil %>
+	<div class="sellers row">
+		<% @sellers.each do |seller| %>
+			<div class="col-sm-4 seller-container">
+				<div class="row seller-box">
+					<div class="col-sm-4">
+						<%= image_tag seller.avatar.url, class: "small-avatar" %>
+					</div>
+					<div class="col-sm-8 text-left">
+						<h3><%= link_to seller.name, profiles_show_path(:id => seller.id) %></h3>
+						<p><%= seller.street_address %><br>
+						<%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
+					</div>
+					<div>
+						<p class="text-left"><b>Most recently added products:</b></p>
+						<% seller.markets.last(3).each do |market| %>
+							<p class="text-left"><%= market.product.name %>: $<%= market.price %> <%= market.price_description %></p>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		 <% end %>
+	 </div>
+
+
+<% else %>
+	<div class="seller-list row">
+	  	<% if @avail_sellers.length != 0 %> 
+	 		<h4> These sellers currently have <%= params[:search] %>: </h4>
+			<% @avail_sellers.each do |seller| %>
+			  <div class="seller-container col-sm-4">
+				  <div class="row">
+					  <div class="col-sm-5">
+					  	<%= image_tag seller.avatar.url, class: "small-avatar" %>
+					  </div>
+					  <div class="col-sm-7">
+						  <p><%= link_to seller.name, profiles_show_path(:id => seller.id) %><br>
+						  <%= seller.street_address %><br>
+						  <%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
+					  </div>
+				  </div>
+			  </div>
+			<% end %>
+		<% else %>
+			<div class="col-sm-3 product_results">
+				<h4>Sorry, no sellers currently have <%= params[:search] %>.</h4>
+			</div>
+		<% end %>
 	</div>
 <% end %>
 
-<div class="seller-list row">
-<!--  	< if @avail_sellers %> -->
- 		<h4> These sellers currently have <%= params[:search] %>: </h4>
-		<% @avail_sellers.each do |seller| %>
-		  <div class="seller-container col-sm-4">
-			  <p><%= link_to seller.name, profiles_show_path(:id => seller.id) %><br>
-			  <%= seller.street_address %><br>
-			  <%= seller.city %>, <%= seller.state %> <%= seller.zipcode %></p>
-			  
-		  </div>
-		<% end %>
-<!-- 	< else %> -->
-		<div class="col-sm-3 product_results">
-		<p>Sorry, <%= params[:search] %> is currently unavailable.</p>
-		</div>
-		
-<!-- 	< end %> -->
-</div>
 
 
 
