@@ -1,5 +1,6 @@
 class Sellers::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
+
  protected
  def after_sign_out_path_for(resource)
   '/'
