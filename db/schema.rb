@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170120202811) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "buyerproducts", force: :cascade do |t|
     t.integer  "buyer_id"
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_buyerproducts_on_buyer_id"
-    t.index ["product_id"], name: "index_buyerproducts_on_product_id"
+    t.index ["buyer_id"], name: "index_buyerproducts_on_buyer_id", using: :btree
+    t.index ["product_id"], name: "index_buyerproducts_on_product_id", using: :btree
   end
 
   create_table "buyers", force: :cascade do |t|
@@ -40,8 +43,8 @@ ActiveRecord::Schema.define(version: 20170120202811) do
     t.string   "zipcode"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_buyers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_buyers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "markets", force: :cascade do |t|
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 20170120202811) do
     t.string   "harvest_location"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["product_id"], name: "index_markets_on_product_id"
-    t.index ["seller_id"], name: "index_markets_on_seller_id"
+    t.index ["product_id"], name: "index_markets_on_product_id", using: :btree
+    t.index ["seller_id"], name: "index_markets_on_seller_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -74,8 +77,8 @@ ActiveRecord::Schema.define(version: 20170120202811) do
     t.integer  "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_reviews_on_buyer_id"
-    t.index ["seller_id"], name: "index_reviews_on_seller_id"
+    t.index ["buyer_id"], name: "index_reviews_on_buyer_id", using: :btree
+    t.index ["seller_id"], name: "index_reviews_on_seller_id", using: :btree
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -102,8 +105,14 @@ ActiveRecord::Schema.define(version: 20170120202811) do
     t.datetime "avatar_updated_at"
     t.float    "latitude"
     t.float    "longitude"
-    t.index ["email"], name: "index_sellers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_sellers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "buyerproducts", "buyers"
+  add_foreign_key "buyerproducts", "products"
+  add_foreign_key "markets", "products"
+  add_foreign_key "markets", "sellers"
+  add_foreign_key "reviews", "buyers"
+  add_foreign_key "reviews", "sellers"
 end
